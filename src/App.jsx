@@ -1,12 +1,20 @@
+import { useState } from 'react';
 import './App.css'
+import data from '../data.json'; 
+import {JobListItems}  from './components/JobListItems/JobListItems';
+import JobItem from './components/JobItem/JobItem';
+
+
 
 function App() {
+  const [jobItems, setJobItems] = useState(data); 
 
+  const jobsItems = jobItems?.map(jobItem => <JobItem key={jobItem.id} jobItem={jobItem} />)
   return (
     <>
-    <div>
-      <p>App</p>
-    </div>
+    <JobListItems>
+      {jobsItems}
+    </JobListItems>
       
     </>
   )
