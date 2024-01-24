@@ -1,35 +1,29 @@
 /* eslint-disable react/prop-types */
 
-
+import styles from './JobItem.module.css'; 
+import LogoImg from '../LogoImg/LogoImg';
 function JobItem({jobItem}) {
   return (
     <article>
-     <div className="logo-img">
-        <img src={jobItem.logo}/>
-     </div>
-     <div className="job-description">
-       <div className="job-title">
+     <div className={styles.jobDescription}>
+      <LogoImg logo={jobItem.logo} />
+      <div className={styles.jobTitle}>
         <h3>{jobItem.company}</h3>
-        {jobItem.new && <span>new</span>}
-        {jobItem.featured && <span>featured</span>}
-       </div>
-       <p>{jobItem.position}</p>
-     </div>
-     <div>
-      <span>{jobItem.postedAt}</span>
-      <ul>
-        <li>{jobItem.contract}</li>
-        <li>{jobItem.location}</li>
-      </ul>
+        {jobItem.new && <span className={styles.jobNew}>NEW!</span>}
+        {jobItem.featured && <span className={styles.jobFeatured}>FEATURED</span>}
+        <p className={styles.jobPosition}>{jobItem.position}</p>
+        <ul>
+          <li>{jobItem.postedAt}</li>
+          <li>{jobItem.contract}</li>
+          <li>{jobItem.location}</li>
+        </ul>
+      </div>
      </div>
      <div>
        {jobItem.languages}
        {jobItem.role}
        {jobItem.level}
        {jobItem.tools}
-
-
-
      </div>
     </article>
   )
