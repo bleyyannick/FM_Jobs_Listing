@@ -20,10 +20,15 @@ function JobItem({jobItem}) {
       </div>
      </div>
      <div>
-       {jobItem.languages}
-       {jobItem.role}
-       {jobItem.level}
-       {jobItem.tools}
+      <ul>
+        {jobItem.languages.map(language => <li key={language}>{language}</li>)}
+        <li>{jobItem.role}</li>
+        <li>{jobItem.level}</li>
+        {jobItem.tools.map(tool => <li key={tool}>{tool}</li>)}
+      </ul>
+       
+       
+       
      </div>
     </article>
   )
