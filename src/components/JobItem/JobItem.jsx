@@ -2,6 +2,7 @@
 
 import styles from './JobItem.module.css'; 
 import LogoImg from '../LogoImg/LogoImg';
+import Filters from '../Filters/Filters';
 function JobItem({jobItem}) {
   return (
     <article>
@@ -20,12 +21,11 @@ function JobItem({jobItem}) {
       </div>
      </div>
      <div className={styles.filtersContainer}>
-        <ul className={styles.filters}>
-          {jobItem.languages.map(language => <li key={language}>{language}</li>)}
-          <li>{jobItem.role}</li>
-          <li>{jobItem.level}</li>
-          {jobItem.tools.map(tool => <li key={tool}>{tool}</li>)}
-        </ul>
+       <Filters 
+         tools={jobItem.tools}
+         level={jobItem.level}
+         role={jobItem.role} 
+         languages={jobItem.languages}/>
      </div>
     </article>
   )

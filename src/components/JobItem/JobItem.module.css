@@ -56,24 +56,6 @@ ul {
     display:flex;
 }
 
-.filters {
-    list-style: none;
-    color: hsl(180, 29%, 50%);
-    font-weight: bold;
-    align-items: center;
-    justify-content: center;
-}
-
-.filters li {
-    background: hsl(180, 31%, 95%);
-    margin: 0 .7em;
-    border-radius: .5em;
-    padding: .6em .9em;
-}
-.filters li:hover {
-    cursor: pointer;
-}
-
 
 li {
     font-size: .8em; 
