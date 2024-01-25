@@ -3,7 +3,14 @@
 import styles from './JobItem.module.css'; 
 import LogoImg from '../LogoImg/LogoImg';
 import Filters from '../Filters/Filters';
-function JobItem({jobItem}) {
+function JobItem({jobItem, onAddFilter}) {
+
+  const filtersTablets = [
+    ...jobItem.tools, 
+    ...jobItem.languages, 
+    jobItem.role, 
+    jobItem.level]; 
+
   return (
     <article>
      <div className={styles.jobDescription}>
@@ -21,11 +28,7 @@ function JobItem({jobItem}) {
       </div>
      </div>
      <div className={styles.filtersContainer}>
-       <Filters 
-         tools={jobItem.tools}
-         level={jobItem.level}
-         role={jobItem.role} 
-         languages={jobItem.languages}/>
+       <Filters onFilter={onAddFilter} filterTablets={filtersTablets}/>
      </div>
     </article>
   )
