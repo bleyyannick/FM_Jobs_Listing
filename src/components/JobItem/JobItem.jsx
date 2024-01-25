@@ -19,16 +19,13 @@ function JobItem({jobItem}) {
         </ul>
       </div>
      </div>
-     <div>
-      <ul>
-        {jobItem.languages.map(language => <li key={language}>{language}</li>)}
-        <li>{jobItem.role}</li>
-        <li>{jobItem.level}</li>
-        {jobItem.tools.map(tool => <li key={tool}>{tool}</li>)}
-      </ul>
-       
-       
-       
+     <div className={styles.filtersContainer}>
+        <ul className={styles.filters}>
+          {jobItem.languages.map(language => <li key={language}>{language}</li>)}
+          <li>{jobItem.role}</li>
+          <li>{jobItem.level}</li>
+          {jobItem.tools.map(tool => <li key={tool}>{tool}</li>)}
+        </ul>
      </div>
     </article>
   )
