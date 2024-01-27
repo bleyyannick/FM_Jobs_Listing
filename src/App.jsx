@@ -1,36 +1,54 @@
 
 import './App.css'
 import data from '../data.json'; 
-import {JobListItems}  from './components/JobListItems/JobListItems';
-import JobItem from './components/JobItem/JobItem';
+import JobListItems from './components/JobListItems/JobListItems';
 import FilterBar from './components/FilterBar/FilterBar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   const [filters, setFilters] = useState([]); 
   const [isFiltered, setIsFiltered] = useState(false); 
+  const [jobs, setJobs] = useState(data); 
 
+
+  useEffect( () => {
+    const updateJobList = ()=> { 
+      const stringifiedFilters = filters.join(",");
+      const filteredJobs = jobs.filter(job => {
+        const stringifiedJobs = [...job.languages, job.level, ...job.tools, job.role].join(","); 
+        return stringifiedFilters === "" ? job : stringifiedJobs.includes(stringifiedFilters);
+      });
+      setJobs(filteredJobs)
+     }
+     updateJobList();
+  }, [filters])
+
+
+   
+  /**
+   * 
+   * @param {string} filter 
+   */
   const handleAddFilter = (filter) => {
-    setFilters( (prevFilters) => [...prevFilters, filter])
+    setFilters((prevFilters) => [...prevFilters, filter])
     setIsFiltered(true); 
   }
-
-  const handleDeleteFilter = (filter) => {
-    console.log(filter)
+  /**
+   * 
+   * @param {string} filter 
+   */
+  const handleDeleteFilter = () => {
+   return
   }
 
- 
 
-  const jobsItems = data.map(jobItem => <JobItem onAddFilter={handleAddFilter}  key={jobItem.id} jobItem={jobItem} />)
   return (
-    <>
     <main>
       {isFiltered && <FilterBar filters={filters} onDeleteFilter={handleDeleteFilter} />}
-      <JobListItems>
-        {jobsItems}
-      </JobListItems>
+      <JobListItems
+         onAddFilter={handleAddFilter}
+         jobs={jobs} />
     </main>
-    </>
   )
 }
 

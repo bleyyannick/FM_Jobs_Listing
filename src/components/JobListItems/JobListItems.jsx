@@ -1,9 +1,17 @@
+
 /* eslint-disable react/prop-types */
+import JobItem from '../JobItem/JobItem';
 import styles from './JobListItems.module.css'; 
 
+function JobListItems({ jobs, onAddFilter}) {
 
-export const JobListItems = ({children}) => 
+  return (
     <section className={styles.container}>
-        {children}
-    </section>; 
+        {jobs.map(job => <JobItem key={job.id} 
+                                  jobItem={job} 
+                                  onAddFilter={onAddFilter} />)}
+    </section>
+  )
+}
 
+export default JobListItems

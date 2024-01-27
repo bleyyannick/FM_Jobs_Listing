@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import styles from './Filters.module.css'
 
-function Filters({filterTablets, onFilter }) {
+function Filters({categories, onFilter }) {
   return (
     <ul className={styles.filters}>
-        {filterTablets.map(filterTablet => <li onClick={ () => onFilter(filterTablet)}  key={filterTablet}>{filterTablet}</li> )}
+        {categories.map(category => <li onClick={()=> onFilter(category)}  key={category}>{category}</li> )}
     </ul>
   )
 }
