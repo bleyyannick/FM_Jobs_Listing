@@ -12,23 +12,16 @@ function App() {
 
 
   useEffect( () => {
-    const updateJobList = ()=> { 
-     const copiedJobList = [...jobs];
+    const updateJobList = (itemList, filtersList)=> { 
+     const copiedJobList = [...itemList];
 
-     const filteredJobList = copiedJobList.filter(job => 
-      filters.length <=0 ? job 
-       :filters.every(filter => 
-        job.languages.includes(filter) ||
-        job.tools.includes(filter) ||
-        job.level === filter ||
-        job.role === filter
-        ));
-     setJobs(filteredJobList); 
-     
-
+     const filteredItemList = copiedJobList.filter(job => 
+       filtersList.length <=0 ? job 
+       :filtersList.every(filter => [...job.languages, ...job.tools, job.role, job.level].includes(filter)));
+     setJobs(filteredItemList); 
     
      }
-     updateJobList();
+     updateJobList(jobs, filters);
   }, [filters])
 
 
