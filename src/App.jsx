@@ -1,27 +1,30 @@
 
 import './App.css'
 import data from '../data.json'; 
-import JobListItems from './components/JobListItems/JobListItems';
+import JobList from './components/JobList/JobList';
 import FilterBar from './components/FilterBar/FilterBar';
 import { useEffect, useState } from 'react';
 
 function App() {
   const [filters, setFilters] = useState([]); 
   const [isFiltered, setIsFiltered] = useState(false); 
-  const [jobs, setJobs] = useState(data); 
+  const [filteredJobs, setFilteredJobs] = useState([]); 
 
 
   useEffect( () => {
     const updateJobList = (itemList, filtersList)=> { 
+
      const copiedJobList = [...itemList];
 
-     const filteredItemList = copiedJobList.filter(job => 
-       filtersList.length <=0 ? job 
-       :filtersList.every(filter => [...job.languages, ...job.tools, job.role, job.level].includes(filter)));
-     setJobs(filteredItemList); 
-    
+    const filteredItemList = filtersList.length <= 0 ? copiedJobList
+                            : copiedJobList.filter(job =>
+                               filtersList.every(filter =>
+                                [...job.languages, ...job.tools, job.role, job.level].includes(filter))); 
+
+      return filteredItemList
      }
-     updateJobList(jobs, filters);
+    setFilteredJobs(updateJobList(data,filters));
+
   }, [filters])
 
 
@@ -38,17 +41,17 @@ function App() {
    * 
    * @param {string} filter 
    */
-  const handleDeleteFilter = () => {
-   return
+  const handleDeleteFilter = (filterToDelete) => {
+   return setFilters((prevFilters) => [...prevFilters].filter(filter => filter !== filterToDelete ));
   }
 
 
   return (
     <main>
       {isFiltered && <FilterBar filters={filters} onDeleteFilter={handleDeleteFilter} />}
-      <JobListItems
+      <JobList
          onAddFilter={handleAddFilter}
-         jobs={jobs} />
+         jobs={filteredJobs} />
     </main>
   )
 }

@@ -1,9 +1,9 @@
 
 /* eslint-disable react/prop-types */
 import JobItem from '../JobItem/JobItem';
-import styles from './JobListItems.module.css'; 
+import styles from './JobList.module.css'; 
 
-function JobListItems({ jobs, onAddFilter}) {
+function JobList({ jobs, onAddFilter}) {
 
   return (
     <section className={styles.container}>
@@ -14,4 +14,4 @@ function JobListItems({ jobs, onAddFilter}) {
   )
 }
 
-export default JobListItems
+export default JobList
