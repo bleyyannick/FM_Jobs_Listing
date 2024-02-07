@@ -8,6 +8,11 @@ import {  useState } from 'react';
 function App() {
   const [filters, setFilters] = useState([]); 
   const [isFiltered, setIsFiltered] = useState(false); 
+
+
+
+  const isFilterIncluded = (arrayOfTags, tags) =>  arrayOfTags.includes(tags); 
+  
   
   /**
    * 
@@ -15,8 +20,8 @@ function App() {
    */
   const handleAddFilter = (filter) => {
     setFilters(prevFilters =>
-      prevFilters.includes(filter) ? [...prevFilters]: [...prevFilters, filter]);
-    setIsFiltered(true); 
+      isFilterIncluded(prevFilters, filter) ? [...prevFilters]: [...prevFilters, filter]);
+      setIsFiltered(true); 
   }
 
   /**
@@ -24,7 +29,7 @@ function App() {
    * @param {string} filterToDelete
    */
   const handleDeleteFilter = (filterToDelete) => {
-   setFilters((prevFilters) => [...prevFilters].filter(filter => filter !== filterToDelete ));
+   setFilters(prevFilters => [...prevFilters].filter(filter => filter !== filterToDelete ));
   }
   /**
    * 
@@ -38,7 +43,7 @@ function App() {
     const filteredList = filtersList.length <= 0 ? copiedJobList
                             : copiedJobList.filter(job =>
                                filtersList.every(filter =>
-                                [...job.languages, ...job.tools, job.role, job.level].includes(filter))); 
+                                isFilterIncluded([...job.languages, ...job.tools, job.role, job.level], filter))); 
         return filteredList
      }
   const filteredJobList = updateJobList(data, filters); 
