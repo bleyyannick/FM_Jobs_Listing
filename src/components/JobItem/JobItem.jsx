@@ -11,8 +11,6 @@ function JobItem({jobItem, onAddFilter}) {
     jobItem.role, 
     jobItem.level
   ]; 
-  
-
 
   return (
     <article>

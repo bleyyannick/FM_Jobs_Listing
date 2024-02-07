@@ -14,7 +14,8 @@ function App() {
    * @param {string} filter 
    */
   const handleAddFilter = (filter) => {
-    setFilters((prevFilters) => [...prevFilters, filter])
+    setFilters(prevFilters =>
+      prevFilters.includes(filter) ? [...prevFilters]: [...prevFilters, filter]);
     setIsFiltered(true); 
   }
 
@@ -46,9 +47,7 @@ function App() {
   return (
     <main>
       {isFiltered && <FilterBar filters={filters} onDeleteFilter={handleDeleteFilter} />}
-      <JobList
-         onAddFilter={handleAddFilter}
-         jobs={filteredJobList} />
+      <JobList onAddFilter={handleAddFilter} jobs={filteredJobList} />
     </main>
   )
 }
