@@ -9,11 +9,8 @@ function App() {
   const [filters, setFilters] = useState([]); 
   const [isFiltered, setIsFiltered] = useState(false); 
 
-
-
   const isFilterIncluded = (arrayOfTags, tags) =>  arrayOfTags.includes(tags); 
-  
-  
+
   /**
    * 
    * @param {string} filter 
@@ -31,6 +28,7 @@ function App() {
   const handleDeleteFilter = (filterToDelete) => {
    setFilters(prevFilters => [...prevFilters].filter(filter => filter !== filterToDelete ));
   }
+
   /**
    * 
    * @param {object[]} itemList 
@@ -46,13 +44,11 @@ function App() {
                                 isFilterIncluded([...job.languages, ...job.tools, job.role, job.level], filter))); 
         return filteredList
      }
-  const filteredJobList = updateJobList(data, filters); 
-
-
+     
   return (
     <main>
       {isFiltered && <FilterBar filters={filters} onDeleteFilter={handleDeleteFilter} />}
-      <JobList onAddFilter={handleAddFilter} jobs={filteredJobList} />
+      <JobList onAddFilter={handleAddFilter} jobs={updateJobList(data, filters)} />
     </main>
   )
 }
