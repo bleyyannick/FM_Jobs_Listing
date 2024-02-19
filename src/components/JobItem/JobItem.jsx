@@ -16,17 +16,17 @@ function JobItem({jobItem, onAddFilter}) {
     <article>
      <div className={styles.jobDescription}>
       <LogoImg logo={jobItem.logo} />
-      <div className={styles.jobTitle}>
-        <h3>{jobItem.company}</h3>
-        {jobItem.new && <span className={styles.jobNew}>NEW!</span>}
-        {jobItem.featured && <span className={styles.jobFeatured}>FEATURED</span>}
-        <p className={styles.jobPosition}>{jobItem.position}</p>
-        <ul>
-          <li>{jobItem.postedAt}</li>
-          <li>{jobItem.contract}</li>
-          <li>{jobItem.location}</li>
-        </ul>
-      </div>
+        <div className={styles.jobTitle}>
+          <h3>{jobItem.company}</h3>
+          {jobItem.new && <span className={styles.jobNew}>NEW!</span>}
+          {jobItem.featured && <span className={styles.jobFeatured}>FEATURED</span>}
+          <p className={styles.jobPosition}>{jobItem.position}</p>
+          <ul>
+            <li>{jobItem.postedAt}</li>
+            <li>{jobItem.contract}</li>
+            <li>{jobItem.location}</li>
+          </ul>
+        </div>
      </div>
      <div className={styles.filtersContainer}>
        <Filters onFilter={onAddFilter} categories={categories}/>
