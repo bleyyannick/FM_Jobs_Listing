@@ -1,2 +1,14 @@
 
 
+.filterBar {
+  max-width: 1200px;
+  height: 55px;
+  background: inherit;
+  margin: auto;
+  position: relative;
+  bottom: 1.7em;
+  z-index: 3;
+  border-radius: 5px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  display: flex;
+}

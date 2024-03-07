@@ -7,9 +7,7 @@ function JobList({ jobs, onAddFilter}) {
 
   return (
     <section className={styles.container}>
-        {jobs.map(job => <JobItem key={job.id} 
-                                  jobItem={job} 
-                                  onAddFilter={onAddFilter} />)}
+        {jobs.map(job => <JobItem key={job.id} jobItem={job} onAddFilter={onAddFilter} />)}
     </section>
   )
 }

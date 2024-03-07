@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
-import Filters from "../Filters/Filters"
+import Filters from "../Filters/Filters"; 
+import styles from "./FilterBar.module.css";
 
 function FilterBar({filters, onDeleteFilter}) {
 
+  
+
   return (
-    <div><Filters categories={filters} onFilter={onDeleteFilter}/></div>
+    filters.length > 0 && <div className={styles.filterBar}><Filters categories={filters} onFilter={onDeleteFilter}/></div>
   )
 }
 
