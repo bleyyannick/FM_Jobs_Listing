@@ -11,4 +11,15 @@
   border-radius: 5px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
   display: flex;
+  justify-content: space-between;
+}
+
+.btnClear {
+  margin-right: 1.5rem;
+  border: transparent;
+  background: transparent;
+  cursor: pointer;
+  color: hsl(180, 29%, 50%);
+  font-size: .8rem;
+  font-weight: bold;
 }

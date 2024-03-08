@@ -7,7 +7,7 @@ function FilterBar({filters, onDeleteFilter, onClear}) {
     filters.length > 0 && 
      <div className={styles.filterBar}>
       <Filters categories={filters} onFilter={onDeleteFilter}/>
-      <button onClick={onClear}>
+      <button className={styles.btnClear} onClick={onClear}>
         Clear
       </button>
      </div>
