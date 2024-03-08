@@ -17,12 +17,16 @@ function JobItem({jobItem, onAddFilter}) {
      <div className={styles.jobDescription}>
       <LogoImg logo={jobItem.logo} />
         <div className={styles.jobTitle}>
+         <div className={styles.featured}>
           <h3>{jobItem.company}</h3>
-          {jobItem.new && <span className={styles.jobNew}>NEW!</span>}
-          {jobItem.featured && <span className={styles.jobFeatured}>FEATURED</span>}
+          <div>
+            {jobItem.new && <span className={styles.jobNew}>NEW!</span>}
+            {jobItem.featured && <span className={styles.jobFeatured}>FEATURED</span>}
+          </div>
+        </div>
           <p className={styles.jobPosition}>{jobItem.position}</p>
           <ul>
-            <li>{jobItem.postedAt}</li>
+            <li className={styles.firstLi}>{jobItem.postedAt}</li>
             <li>{jobItem.contract}</li>
             <li>{jobItem.location}</li>
           </ul>

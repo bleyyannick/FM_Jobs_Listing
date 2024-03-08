@@ -4,6 +4,7 @@ import data from '../data.json';
 import JobList from './components/JobList/JobList';
 import FilterBar from './components/FilterBar/FilterBar';
 import {  useState } from 'react';
+import Header from './components/Header/Header';
 
 function App() {
   const [filters, setFilters] = useState([]); 
@@ -29,6 +30,10 @@ function App() {
    setFilters(prevFilters => [...prevFilters].filter(filter => filter !== filterToDelete ));
   }
 
+  const handleClearFilterBar = () => {
+    setFilters(prevFilters => prevFilters.length = 0); 
+  }
+
   /**
    * 
    * @param {object[]} itemList 
@@ -46,10 +51,13 @@ function App() {
      }
      
   return (
-    <main>
-      {isFiltered && <FilterBar filters={filters} onDeleteFilter={handleDeleteFilter} />}
-      <JobList onAddFilter={handleAddFilter} jobs={updateJobList(data, filters)} />
-    </main>
+    <>
+      <Header/>
+      <main>
+        {isFiltered && <FilterBar filters={filters} onDeleteFilter={handleDeleteFilter} onClear={handleClearFilterBar} />}
+        <JobList onAddFilter={handleAddFilter} jobs={updateJobList(data, filters)} />
+      </main>
+    </>
   )
 }
 

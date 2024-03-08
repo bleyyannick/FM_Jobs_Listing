@@ -1,7 +1,7 @@
 
 
 .filterBar {
-  max-width: 1200px;
+  width: 85%;
   height: 55px;
   background: inherit;
   margin: auto;

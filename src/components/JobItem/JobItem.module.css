@@ -11,10 +11,15 @@ article {
 .jobDescription{
     display: flex;
     width: 40%; 
+    gap: 1.2rem;
+}
+.featured {
+    display:flex; 
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 h3 {
-    display: inline;
     margin-right: 1em;
     font-size: .9em; 
     font-weight: bold;
@@ -26,14 +31,11 @@ h3 {
     font-weight: bold;
 }
 
-.jobTitle {
-    padding: .4em 0;
-}
-
 .jobNew, .jobFeatured {
   background: hsl(180, 29%, 50%);
   color: hsl(180, 52%, 96%);
   font-weight: bold;
+  font-size: .7em;
   margin-right: .5em; 
   padding-top: .4em;
   padding-bottom: .2em;
@@ -41,6 +43,7 @@ h3 {
   padding-right: .6em;
   text-align: center;
   border-radius: 1em;
+  
 }
 
 .jobFeatured {
@@ -55,9 +58,12 @@ ul {
     display:flex;
 }
 
-
 li {
     font-size: .8em; 
     margin-right: 1.5em;
-    margin-left: 1em;
+}
+
+.firstLi::marker {
+   list-style: none;
+   color:transparent;
 }
