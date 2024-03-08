@@ -30,9 +30,11 @@ function App() {
    setFilters(prevFilters => [...prevFilters].filter(filter => filter !== filterToDelete ));
   }
 
-  const handleClearFilterBar = () => {
-    setFilters(prevFilters => prevFilters.length = 0); 
-  }
+
+  const handleClearFilter = () => setFilters([]);
+  
+
+  
 
   /**
    * 
@@ -54,8 +56,8 @@ function App() {
     <>
       <Header/>
       <main>
-        {isFiltered && <FilterBar filters={filters} onDeleteFilter={handleDeleteFilter} onClear={handleClearFilterBar} />}
-        <JobList onAddFilter={handleAddFilter} jobs={updateJobList(data, filters)} />
+        {isFiltered && <FilterBar filters={filters} onDeleteFilter={handleDeleteFilter} onClear={handleClearFilter} />}
+        <JobList onAddFilter={handleAddFilter} jobs={updateJobList(data, [...filters])} />
       </main>
     </>
   )

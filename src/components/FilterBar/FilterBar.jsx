@@ -2,12 +2,15 @@
 import Filters from "../Filters/Filters"; 
 import styles from "./FilterBar.module.css";
 
-function FilterBar({filters, onDeleteFilter}) {
-
-  
-
+function FilterBar({filters, onDeleteFilter, onClear}) {
   return (
-    filters.length > 0 && <div className={styles.filterBar}><Filters categories={filters} onFilter={onDeleteFilter}/></div>
+    filters.length > 0 && 
+     <div className={styles.filterBar}>
+      <Filters categories={filters} onFilter={onDeleteFilter}/>
+      <button onClick={onClear}>
+        Clear
+      </button>
+     </div>
   )
 }
 
