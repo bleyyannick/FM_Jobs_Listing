@@ -9,8 +9,7 @@ article {
 }
 
 .jobDescription{
-    display: flex;
-    width: 40%; 
+    display: flex; 
     gap: 1.2rem;
 }
 .featured {
