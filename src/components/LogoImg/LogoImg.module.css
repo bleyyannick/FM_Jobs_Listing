@@ -1,0 +1,10 @@
+
+
+
+@media screen and (min-width: 330px) and (max-width: 650px){
+   img {
+    width: 40px;
+    position: relative;
+    top: -37px;
+   }
+}

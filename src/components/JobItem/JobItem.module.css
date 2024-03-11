@@ -66,3 +66,28 @@ li {
    list-style: none;
    color:transparent;
 }
+
+
+@media screen and (min-width: 330px) and (max-width: 650px){
+    article {
+        padding: 1rem;
+        flex-direction: column;
+        height: auto;
+        width: auto;
+        margin-top: 2.5rem;
+        min-height: 200px;
+    }
+    .jobDescription {
+        flex-direction: column;
+    }
+    .jobTitle {
+        padding-bottom: 1.5rem;
+        position: relative;
+        bottom: 42px;
+    }
+    .filtersContainer {
+        border-top: 1px solid gray;
+        position: relative;
+        bottom: 43px;
+    }
+}
