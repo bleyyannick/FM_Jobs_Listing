@@ -68,7 +68,19 @@ li {
 }
 
 
-@media screen and (min-width: 330px) and (max-width: 650px){
+@media screen and (min-width: 651px) and (max-width: 1000px){
+    article { 
+        flex-direction: column;
+    }
+    .filtersContainer {
+        padding-top: 2rem;
+        border-top: 1px solid gray;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 650px){
     article {
         padding: 1rem;
         flex-direction: column;
