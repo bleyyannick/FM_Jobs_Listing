@@ -34,7 +34,7 @@ h3 {
   background: hsl(180, 29%, 50%);
   color: hsl(180, 52%, 96%);
   font-weight: bold;
-  font-size: .7em;
+  font-size: .8em;
   margin-right: .5em; 
   padding-top: .4em;
   padding-bottom: .2em;
@@ -72,10 +72,9 @@ li {
     article {
         padding: 1rem;
         flex-direction: column;
-        height: auto;
-        width: auto;
         margin-top: 2.5rem;
-        min-height: 200px;
+        height: 280px;
+
     }
     .jobDescription {
         flex-direction: column;

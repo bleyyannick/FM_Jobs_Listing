@@ -6,7 +6,6 @@
     align-items: center;
     justify-content: center;
     flex-wrap:wrap;
-    margin-left: 1.5rem;
 }
 
 .filters li {
@@ -26,11 +25,8 @@
 
 .filters {
     justify-content: start;
-    gap: 1rem;
+    gap: .7rem;
     margin: 0;
     padding: 1.5rem 0;
 }
-
-
-
 }

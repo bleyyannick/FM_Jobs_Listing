@@ -2,16 +2,19 @@
 
 .filterBar {
   width: 85%;
-  height: 55px;
+  padding: 1.2rem 0;
   background: inherit;
   margin: auto;
   position: relative;
   bottom: 1.7em;
-  z-index: 3;
   border-radius: 5px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
   display: flex;
   justify-content: space-between;
+}
+
+.filterBar ul {
+  margin-left: .7rem;
 }
 
 .btnClear {
@@ -22,4 +25,15 @@
   color: hsl(180, 29%, 50%);
   font-size: .8rem;
   font-weight: bold;
+}
+
+
+
+@media  screen and (min-width: 330px) and (max-width: 650px) {
+
+  .filterBar {
+    bottom: 1em;
+    padding: 0; 
+  }
+  
 }
