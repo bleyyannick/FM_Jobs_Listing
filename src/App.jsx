@@ -56,8 +56,11 @@ function App() {
     <>
       <Header/>
       <main>
-        {isFiltered && <FilterBar filters={filters} onDeleteFilter={handleDeleteFilter} onClear={handleClearFilter} />}
-        <JobList onAddFilter={handleAddFilter} jobs={updateJobList(data, [...filters])} />
+        {isFiltered && <FilterBar 
+                  filters={filters} 
+                  onDeleteFilter={handleDeleteFilter} 
+                  onClear={handleClearFilter} />}
+        <JobList onAddFilter={handleAddFilter} jobs={updateJobList(data, filters)} />
       </main>
     </>
   )
