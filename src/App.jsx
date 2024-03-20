@@ -9,7 +9,12 @@ import Header from './components/Header/Header';
 function App() {
   const [filters, setFilters] = useState([]); 
   const [isFiltered, setIsFiltered] = useState(false); 
-
+  /**
+   * 
+   * @param {string[]} arrayOfTags 
+   * @param {string} tags 
+   * @returns boolean
+   */
   const isFilterIncluded = (arrayOfTags, tags) =>  arrayOfTags.includes(tags); 
 
   /**
@@ -30,7 +35,10 @@ function App() {
    setFilters(prevFilters => [...prevFilters].filter(filter => filter !== filterToDelete ));
   }
 
-
+  /**
+   * 
+   * @returns void
+   */
   const handleClearFilter = () => setFilters([]);
   
 
