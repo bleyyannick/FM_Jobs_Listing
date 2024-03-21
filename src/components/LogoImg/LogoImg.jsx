@@ -3,7 +3,7 @@ import styles from './LogoImg.module.css';
 function LogoImg({logo}) {
   return (
       <>
-        <img src={logo}/>
+        <img src={logo} alt="logo of the company"/>
       </>
   )
 }
