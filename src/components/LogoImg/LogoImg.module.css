@@ -1,13 +1,13 @@
 
 
 @media screen and (min-width: 651px) and (max-width: 1000px) {
-   img {
+   .logoImg {
       width: 70px;
       height:70px;
    }
 }
 @media screen and (min-width: 300px) and (max-width: 650px){
-   img {
+   .logoImg {
     width: 50px;
     position: relative;
     top: -37px;
