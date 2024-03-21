@@ -3,6 +3,6 @@ import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/FM_Jobs_Listing/",
   plugins: [react()],
+  base: "/FM_Jobs_Listing/",
 });
